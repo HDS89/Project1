@@ -31,9 +31,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest pipenv
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Env with pipenv
-      run: |
-        export PYTHONPATH=src        
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -42,7 +39,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        export PYTHONPATH=src
         python -m pytest tests/
+        
     - name: Deploy to Heroku
       env:
           HEROKU_API_TOKEN: ${{secrets.HEROKU_API_TOKEN}}
