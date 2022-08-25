@@ -57,7 +57,7 @@ jobs:
       with:
         image: dsdocker2022/python_pipline_01-dockerimage
         tags: latest
-        registry: registry-url.io
+        registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}    
     
