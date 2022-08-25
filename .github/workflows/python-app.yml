@@ -52,4 +52,13 @@ jobs:
           git push heroku HEAD:main -f
           
     
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5   
+      with:
+        image: dsdocker2022/python_pipline_01-dockerimage
+        tags: latest
+        registry: registry-url.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}    
+    
 
