@@ -1,2 +1,2 @@
-web gunicorn --pythonpath src app:apip
+web gunicorn --pythonpath src app:app
 
